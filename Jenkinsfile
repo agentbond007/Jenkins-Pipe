@@ -13,6 +13,7 @@ node {
 
         app = docker.build("benmorris/hellonode8")
         slackSend color: 'RED', message: 'Hello'
+        slackSend (color: '#FFFF00', message: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
     }
 
     stage('Test image') {
