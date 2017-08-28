@@ -10,12 +10,8 @@ node {
     stage('Build image') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
-        notifyStarted()
-        app = docker.build("benmorris/hellonode8")
-        def notifyStarted() {
-  // send to Slack
-        slackSend (color: '#FFFF00', message: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
 
+        app = docker.build("benmorris/hellonode8")
     }
 
     stage('Test image') {
