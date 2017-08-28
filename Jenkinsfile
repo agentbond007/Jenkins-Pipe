@@ -11,7 +11,19 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("benmorris/hellonode6")
+        app = docker.build("benmorris/hellonode8")
+				notifyStarted()
+
+  /* ... existing build steps ... */
+
+  notifySuccessful()
+}
+
+def notifyStarted() { /* .. */ }
+
+def notifySuccessful() {
+  slackSend (color: '#00FF00', message: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+	
     }
 
     stage('Test image') {
