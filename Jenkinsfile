@@ -12,6 +12,7 @@ node {
          * docker build on the command line */
 
         app = docker.build("benmorris/hellonode8")
+        slackSend color: 'RED', message: 'Hello'
     }
 
     stage('Test image') {
