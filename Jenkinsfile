@@ -41,7 +41,7 @@ node {
          * Second, the 'latest' tag.
          * Pushing multiple tags is cheap, as all the layers are reused. */
          docker.withRegistry('https://634953040298.dkr.ecr.us-east-1.amazonaws.com/portalapp', 'docker-hub-credentials') {
-   docker.image("late").push()
+   docker.image("portalapp").push()
  }
     }
 }
