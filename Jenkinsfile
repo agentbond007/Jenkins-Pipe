@@ -35,4 +35,7 @@ node {
             app.push("latest")
         }
     }
+    stage('publish gcloud') {
+      sh "gcloud docker -- push us.gcr.io/Docker-Jenkins-101/benmorris"
+  }
 }
