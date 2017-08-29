@@ -35,7 +35,14 @@ node {
             app.push("latest")
         }
     }
-    stage('publish gcloud') {
-      sh "gcloud docker -- push us.gcr.io/Docker-Jenkins-101/benmorris"
-  }
+    stage('Push image') {
+        /* Finally, we'll push the image with two tags:
+         * First, the incremental build number from Jenkins
+         * Second, the 'latest' tag.
+         * Pushing multiple tags is cheap, as all the layers are reused. */
+        docker.withRegistry('https://634953040298.dkr.ecr.us-east-1.amazonaws.com/portalapp', 'aws-docker') {
+            app.push("${env.BUILD_NUMBER}")
+            app.push("latest")
+        }
+    }
 }
