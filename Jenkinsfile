@@ -40,7 +40,7 @@ node {
          * First, the incremental build number from Jenkins
          * Second, the 'latest' tag.
          * Pushing multiple tags is cheap, as all the layers are reused. */
-         docker.withRegistry("https://634953040298.dkr.ecr.us-east-1.amazonaws.com/portalapp", "ecr:us-east-1:credential-id") {
+         docker.withRegistry("https://634953040298.dkr.ecr.us-east-1.amazonaws.com/portalapp", "2d98beda-1a4a-4b2b-949c-44596590f037") {
    docker.image("late").push()
  }
     }
